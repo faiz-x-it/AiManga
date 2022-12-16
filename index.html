@@ -12,204 +12,15 @@
 	<link href="https://fonts.googleapis.com/css2?family=Contrail+One&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Contrail+One&family=Noto+Sans:wght@700&display=swap"
 		rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+
 </head>
-<style>
-	@import url('https://fonts.googleapis.com/css2?family=Contrail+One&family=Noto+Sans:wght@700&display=swap');
-	@import url('https://fonts.googleapis.com/css2?family=Contrail+One&display=swap');
-</style>
-<style>
-	* {
-		/*border:1px solid white;*/
-	}
 
 
-	.ctrlpanel {
-		position: absolute;
-		top:0px;
-	}
-
-
-	body {
-		
-		background: transparent;
-		background:black;
-background: url('Zz2.jpg'); 
-background-size: cover;
-		background-size: 100% auto;
-
-		background-position: center;
-
-		background-repeat: no-repeat;
-
-		
-
-		background-repeat: no-repeat;
-
-
-	}
-
-	details {
-		border: 1px solid black;
-		padding: 20px;
-	}
-
-	.uu {
-		opacity: 1;
-		/* background: #00000088; */
-		background-position: center;
-		position: absolute;
-		margin:50% auto 50% auto;
-		padding: 0px;
-		width: 110px;
-		height: 110px;
-		border-radius: 100%;
-	}
-
-	.graycircle {
-		opacity: 1;
-		background-position: center;
-		position: absolute;
-		margin:50% auto 50% auto;
-		text-align:center;
-		padding: 40px;
-		border-radius: 100%;
-		border: 12.5px solid #ffffff6f;
-		z-index: 2;
-	}
-
-
-
-	
-	.uu2 {
-		font-family: Helvetica;
-		background: #ff000088;
-		position: absolute;
-		top: 2%;
-		left: 47%;
-		padding: 0px;
-		width: 12px;
-		height: 12px;
-		border-radius: 100%;
-		box-shadow: 0px -14px 10px 0px cyan
-	}
-
-	.rtrrall {
-
-		border-radius: 100%;
-		border: inset 12px solid gray;
-		width: 100%;
-		height: 100%;
-		transform-origin: centre;
-		transform: rotateZ(0deg);
-	}
-
-	.rtrr {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		transform-origin: centre;
-		transform: rotateZ(5deg);
-	}
-
-	.rtrr4 {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		transform-origin: centre;
-		transform: rotateZ(10deg);
-	}
-
-	.perc {
-		font-family: Contrail One;
-		/* text-align: center; */
-		/* text-align: justify; */
-		opacity: 1;
-		position: absolute;
-		top: 84px;
-	margin:50% auto 50% auto;
-		padding: 0;
-		border-radius: 100%;
-		color: white;
-		font-weight: bold;
-		font-size: 22px;
-		z-index: 1;
-transform-origin: centre;
-		transform: scaleY(0.85) scaleX(1.5);
-	}
-
-	.container {
-		position: relative;
-		top:-12px;
-		margin:50% auto 50% auto;
-		transform-origin: center;
-		transform: scale(0.7);
-width: 100%;
-heigth:100%;
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-   justify-content: center;
-   align-items: center;
-
-background: url('Zz.jpg'); 
-background: transparent;
-
-		background-position: center;
-
-		background-repeat: no-repeat;
-
-		background-size: cover;
-
-		background-repeat: no-repeat;
-
-	}
-
-	.wh {
-		color: white;
-	}
-
-.textlogo {
-		font-family: Noto Sans;
-		opacity: 1;
-		margin:49.5% auto 50% auto;
-		text-align:center;
-		width:100%;
-height:100%;
-		
-
-		color: #00000055;
-color:white;
-		font-weight: 800;
-		font-size: 22px;
-		z-index: 1;
-/*letter-spacing:-2px;*/
-font-kerning:normal;
-transform-origin: centre;
-		transform: scaleY(0.90) scaleX(0.95);
-	}
-
-.kerned{
-letter-spacing:-1px;
-
-}
-x,y{
-position:relative;
-display:inline-block;
-transform-origin: center;}
-x{
-top:1.0px;
-transform: scaleY(0.88) scaleX(0.95);
-}
-y{
-top:0px;
-
-{
-
-</style>
 
 
 <body>
-<div id=ctrlpanel style="">
+	<div id=ctrlpanel style="">
 
 		<input class=ctrl min=0 max=100 id=speedinput type=range value=0>
 		<input class=ctrl min=0 max=100 id=vdeg type=range oninput=bbb()>
@@ -218,7 +29,10 @@ top:0px;
 	</div>
 	<div class="container">
 
-		<span id=textlogo class=textlogo><span class=kerned><y>T<y><x>i</x></span>kTok</span>
+		<span id=textlogo class=textlogo><span class=kerned>
+				<y>T<y>
+						<x>i</x>
+			</span>kTok</span>
 		<span id=graycircle class=graycircle></span>
 		<span id=rtrall class=uu>
 			<div id=rtralla class=rtrrall>
@@ -231,15 +45,16 @@ top:0px;
 		<span id=perc class=perc>99%</span>
 
 	</div>
-	
+
 	<script>
-overTheMaxAngle=360*5;
+		truMaxAngle = 340;
+		overTheMaxAngle = truMaxAngle * 9; 360 * 5;
 		dce = (x, y) => {
 			let oo = document.createElement(y);
 			x.append(oo);
 			return oo;
 		}
-stopped = false;
+		stopped = false;
 		bbbtimeoutID = 999;
 		StepAngle = 2;
 		howManySteps = 0;
@@ -262,10 +77,10 @@ stopped = false;
 			//setTimeout(bbb,50);
 		}
 
-	function mf(x,places=0){
-let placesfactor = 10**places;
-return Math.floor(x*placesfactor)/placesfactor;    
-}   
+		function mf(x, places = 0) {
+			let placesfactor = 10 ** places;
+			return Math.floor(x * placesfactor) / placesfactor;
+		}
 		floor = x => Math.floor(x)
 		maxAngle = 347
 		maxAngle = 347
@@ -273,7 +88,7 @@ return Math.floor(x*placesfactor)/placesfactor;
 
 		allSteps = [];
 		function addStepsOnCircle() {
-			for (x = maxAngle+overTheMaxAngle; x > minAngle; x -= StepAngle) {
+			for (x = maxAngle + overTheMaxAngle; x > minAngle; x -= StepAngle) {
 				magfac = 1.3;
 				howManySteps++;
 				let rtrel = dce(rtralla, "div");
@@ -300,16 +115,16 @@ return Math.floor(x*placesfactor)/placesfactor;
 					G = -0 + Math.sin((fract - magfac) * 3) * 128;
 					B = 180 + Math.sin((fract - magfac) * 2) * 128;
 					// Math.abs(180 - floor((fract) * 1 * 255));
-					span.style.padding = mf((fract - magfac),2);
+					span.style.padding = mf((fract - magfac), 2);
 					sdl = [
 						0,//mf((fract - magfac) * 0,2),
-						mf((fract - magfac) * -20,2),
-						mf((fract - magfac) * 4,2)
+						mf((fract - magfac) * -20, 2),
+						mf((fract - magfac) * 4, 2)
 					].join("px,") + "px"
 					console.log(sdl);
 					span.style.transform =
 						"perspective(100px) translate3d(" + sdl + ")"
-					"scale(" + mf((1 + (fract - magfac)) * 2,2) + ")";
+					"scale(" + mf((1 + (fract - magfac)) * 2, 2) + ")";
 					// span.style.zIndex = Math.floor(fract * 1000) + "";
 				}
 
@@ -327,9 +142,9 @@ return Math.floor(x*placesfactor)/placesfactor;
 		}
 
 		function displayProgress(cur, max) {
-			let prc = 100 - Math.floor(cur*StepAngle/360* max * 100);
+			let prc = 100 - Math.floor(cur * StepAngle / truMaxAngle * max * 100);
 
-prc = mf(((max - cur)*2/360)*100);
+			prc = mf(((max - cur) * 2 / truMaxAngle) * 100);
 			perc.innerText = prc + "%";
 			for (i = 0; i < vdeg.max; i++) {
 				el = allSteps[i]
@@ -343,18 +158,20 @@ prc = mf(((max - cur)*2/360)*100);
 		}
 
 		function bbb() {
-if(stopped) return;
+			if (stopped) return;
 			let as = allSteps;
-			let vd = currentIndex;
+			let vd = 0;//currentIndex;
 			displayProgress(vd, vdeg.max);
 
 			clearTimeout(bbbtimeoutID);
-if (vd > 0){
+			if (vd > 0) {
 
-			bbbtimeoutID = setTimeout(xx => { somenumber++; 
-currentIndex = vdeg.max - somenumber; 
-bbb() }, parseInt(speedinput.value))
-}
+				bbbtimeoutID = setTimeout(xx => {
+					somenumber++;
+					currentIndex = vdeg.max - somenumber;
+					bbb()
+				}, parseInt(speedinput.value))
+			}
 		}
 
 		graycircle.addEventListener('click', xx => {
@@ -362,16 +179,16 @@ bbb() }, parseInt(speedinput.value))
 
 			if (ctrlpanel.style.display != 'none') {
 				ctrlpanel.style.display = 'none';
-				stopped=false;
-				bbbtimeoutID = setTimeout(bbb,500);
+				stopped = false;
+				bbbtimeoutID = setTimeout(bbb, 500);
 			} else {
-				
+
 				somenumber = 0;
 				vdeg.value = vdeg.max - somenumber;
 				displayProgress(vdeg.max, vdeg.max);
 				clearTimeout(bbbtimeoutID);
 				ctrlpanel.style.display = '';
-stopped = true;
+				stopped = true;
 			}
 		});
 
