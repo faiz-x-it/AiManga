@@ -12,210 +12,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Contrail+One&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Contrail+One&family=Noto+Sans:wght@700&display=swap"
 		rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+
 </head>
-<style>
-	@import url('https://fonts.googleapis.com/css2?family=Contrail+One&family=Noto+Sans:wght@700&display=swap');
-	@import url('https://fonts.googleapis.com/css2?family=Contrail+One&display=swap');
-</style>
-<style>
-	* {
-		/*border:1px solid white;*/
-	}
-
-
-	.ctrlpanel {
-		position: absolute;
-		top: 0px;
-	}
-
-
-	body {
-
-		background: transparent;
-		background: black;
-		background: url('Zz2.jpg');
-		background-size: cover;
-		background-size: 100% auto;
-
-		background-position: center;
-
-		background-repeat: no-repeat;
-
-
-
-		background-repeat: no-repeat;
-
-
-	}
-
-	details {
-		border: 1px solid black;
-		padding: 20px;
-	}
-
-	.uu {
-		opacity: 1;
-		/* background: #00000088; */
-		background-position: center;
-		position: absolute;
-		margin: 50% auto 50% auto;
-		padding: 0px;
-		width: 110px;
-		height: 110px;
-		border-radius: 100%;
-	}
-
-	.graycircle {
-		opacity: 1;
-		background-position: center;
-		position: absolute;
-		margin: 50% auto 50% auto;
-		text-align: center;
-		padding: 40px;
-		border-radius: 100%;
-		border: 12.5px solid #ffffff6f;
-		z-index: 2;
-	}
-
-
-
-
-	.uu2 {
-		font-family: Helvetica;
-		background: #ff000088;
-		position: absolute;
-		top: 2%;
-		left: 47%;
-		padding: 0px;
-		width: 12px;
-		height: 12px;
-		border-radius: 100%;
-		box-shadow: 0px -14px 10px 0px cyan
-	}
-
-	.rtrrall {
-
-		border-radius: 100%;
-		border: inset 12px solid gray;
-		width: 100%;
-		height: 100%;
-		transform-origin: centre;
-		transform: rotateZ(0deg);
-	}
-
-	.rtrr {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		transform-origin: centre;
-		transform: rotateZ(5deg);
-	}
-
-	.rtrr4 {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		transform-origin: centre;
-		transform: rotateZ(10deg);
-	}
-
-	@font-face {
-		font-family: 'AtomicAge';
-		src: url('atomic-age.regular.ttf') format('truetype');
-	}
-
-	.perc {
-		/* font-family: Contrail One; */
-		/* text-align: center; */
-		/* text-align: justify; */
-		font-family: AtomicAge;
-		opacity: 1;
-		position: absolute;
-		top: 84px;
-		margin: 50% auto 50% auto;
-		padding: 0;
-		border-radius: 100%;
-		color: white;
-		font-weight: bold;
-		font-size: 22px;
-		z-index: 1;
-		transform-origin: centre;
-		transform: scaleY(0.85) scaleX(1.5);
-	}
-
-	.container {
-		position: relative;
-		top: -12px;
-		margin: 50% auto 50% auto;
-		transform-origin: center;
-		transform: scale(0.7);
-		width: 100%;
-		heigth: 100%;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
-
-		background: url('Zz.jpg');
-		background: transparent;
-
-		background-position: center;
-
-		background-repeat: no-repeat;
-
-		background-size: cover;
-
-		background-repeat: no-repeat;
-
-	}
-
-	.wh {
-		color: white;
-	}
-
-	.textlogo {
-		font-family: Noto Sans;
-		opacity: 1;
-		margin: 49.5% auto 50% auto;
-		text-align: center;
-		width: 100%;
-		height: 100%;
-
-
-		color: #00000055;
-		color: white;
-		font-weight: 800;
-		font-size: 22px;
-		z-index: 1;
-		/*letter-spacing:-2px;*/
-		font-kerning: normal;
-		transform-origin: centre;
-		transform: scaleY(0.90) scaleX(0.95);
-	}
-
-	.kerned {
-		letter-spacing: -1px;
-
-	}
-
-	x,
-	y {
-		position: relative;
-		display: inline-block;
-		transform-origin: center;
-	}
-
-	x {
-		top: 1.0px;
-		transform: scaleY(0.88) scaleX(0.95);
-	}
-
-	y {
-		top: 0px;
-
-	}
-</style>
 
 
 <body>
@@ -223,7 +22,9 @@
 
 		<input class=ctrl min=0 max=100 id=speedinput type=range value=0>
 		<input class=ctrl min=0 max=100 id=vdeg type=range oninput=bbb()>
-		<input type="file" id="beforeAI"><span class="wh">-before AI</span>
+		<input type="file" id="beforeAI"><span class="wh">
+			<vv>image before AI</vv>
+		</span>
 
 	</div>
 	<div class="container">
@@ -244,9 +45,10 @@
 		<span id=perc class=perc>99%</span>
 
 	</div>
-
 	<script>
-		overTheMaxAngle = 360 * 5;
+		truMaxAngle = 340;
+		overTheMaxAngle = truMaxAngle * 9; 360 * 5;
+
 		dce = (x, y) => {
 			let oo = document.createElement(y);
 			x.append(oo);
@@ -293,55 +95,35 @@
 				let rtrel = dce(rtralla, "div");
 				rtrel.className = "rtrr4"
 				let vd = x;
-				let fract = x * magfac / maxAngle * 1;
+				let overtip = magfac / maxAngle * 1;
+				let fract = x * overtip;
 				rtrel.style.transform = "rotateZ(" + vd + "deg)";
 				let span = dce(rtrel, "span");
 				// We reduce green to zero first (0 at 50% gradient), then we increase red
 				span.className = "uu2";
 				let R, G, B = 0;
 
-				if (fract < 0.5) {
-					G = mf(Math.sin((fract) * 10) * 127) + 127;
-					R = 0;
-					B = 180;
-				}
-				else {
-					R = mf(Math.sin((fract - magfac) * 10) * 127) + 127;
-					G = -0 + Math.sin((fract - magfac) * 3) * 128;
-					B = 180 + Math.sin((fract - magfac) * 2) * 128;
-					//G = 0;
-					//B = 180;
-					sdl = [
-						0,//mf((fract - magfac) * 0,2)*(fract-.5),
-						mf((Math.sin((fract - .5) * 180 / 4) * 12, 2) + mf((fract - .5) * -20, 2)) * (fract - .5),
-						mf((fract - .5) * 4, 2) * (fract - .5)
-					].join("px,") + "px"
-					//console.log(sdl);
-					span.style.transform =
-						"perspective(" + (150 + mf(Math.sin((fract - .5) * 10), 2) * 100) + "px) translate3d(" + sdl + ")"
-					"scale(" + mf((1 + (fract - .5)) * 2, 2) + ")";
-					// span.style.zIndex = Math.floor(fract * 1000) + "";
+				R = mf((Math.sin(((fract + .2) * 1.8) + 5.6) * 255));
+				G = mf((Math.sin(((fract + .2) * 4.8) + 7.0) * 255));//0;//255 + Math.sin((fract - .5) * 3);
+				B = mf((Math.sin(((fract + .15) * 2.) + 6.8) * 255));//0;//180 + Math.sin((fract - .5) * 2) * 128;
 
+				//G = 0;
+				//B = 180;
+				if (fract > .5) {
+					span.style.padding = mf((fract - .5) * 2, 2) - 12;
 
-					//here the best part starts
-					R = mf(Math.sin((fract - .5) * 7) * 127) + 127;
-					//230 - Math.sin((fract - .5) * 5) * 128;
-					G = -0 + Math.sin((fract - .5) * 3) * 128;
-					B = 180 + Math.sin((fract - .5) * 2) * 128;
-					// Math.abs(180 - floor((fract) * 1 * 255));
-					span.style.padding = mf((fract - .5) * 2, 2) - 6;
-					//mf(Math.sin((fract - magfac)*40)*8,2);
 					sdl = [
 						0,//mf((fract - magfac) * 0,2),
-						mf(Math.sin((fract - .5) * 10) * 12, 2) + mf((fract - .5) * -20, 2),
-						mf(Math.sin((fract - .5) * 128) * 4, 2)
+						mf((Math.sin((fract - .5)) / Math.sin((fract * 1) - 2.5) * 18), 2) / ((Math.sin((fract - .5) * fract) * 100), 2) * 8,
+						mf(Math.sin((fract - .5) * (overtip - fract * 5) * 5) * (overtip - fract * 5), 2)
 					].join("px,") + "px"
 					//console.log(sdl);
 					span.style.transform =
-						"perspective(" + (150 + mf(Math.sin((fract - .5) * 10), 2) * 100) + "px) translate3d(" + sdl + ")"
+						"perspective(" + (150 + mf(Math.sin((fract - .5) * 5), 2) * 100) + "px) translate3d(" + sdl + ")"
 					"scale(" + mf((1 + (fract - .5)) * 2, 2) + ")";
 					// span.style.zIndex = Math.floor(fract * 1000) + "";
 				}
+
 				Rs.push(R);
 				console.log([R, G, B]);
 				let BG = 'rgba(' + [R, G, B].join() + ',1)';
@@ -374,7 +156,10 @@
 		}
 
 		function bbb() {
-			if (stopped) return;
+			if (stopped) {
+				displayProgress(vdeg.value, vdeg.max);
+				return;
+			}
 			let as = allSteps;
 			let vd = currentIndex;
 			displayProgress(vd, vdeg.max);
@@ -390,8 +175,8 @@
 			}
 		}
 
-		graycircle.addEventListener('click', xx => {
-
+		textlogo.addEventListener('click', xx => {
+			currentIndex = vdeg.value;
 
 			if (ctrlpanel.style.display != 'none') {
 				ctrlpanel.style.display = 'none';
@@ -399,8 +184,8 @@
 				bbbtimeoutID = setTimeout(bbb, 500);
 			} else {
 
-				somenumber = 0;
-				vdeg.value = vdeg.max - somenumber;
+				somenumber = vdeg.value;
+				currentIndex = vdeg.max - somenumber;
 				displayProgress(vdeg.max, vdeg.max);
 				clearTimeout(bbbtimeoutID);
 				ctrlpanel.style.display = '';
@@ -427,7 +212,6 @@
 
 		addStepsOnCircle()
 
-		vdeg.addEventListener('oninput', bbb);
 	</script>
 </body>
 

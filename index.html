@@ -24,7 +24,9 @@
 
 		<input class=ctrl min=0 max=100 id=speedinput type=range value=0>
 		<input class=ctrl min=0 max=100 id=vdeg type=range oninput=bbb()>
-		<input type="file" id="beforeAI"><span class="wh">-before AI</span>
+		<input type="file" id="beforeAI"><span class="wh">
+			<vv>image before AI</vv>
+		</span>
 
 	</div>
 	<div class="container">
@@ -211,7 +213,6 @@
 
 		addStepsOnCircle()
 
-		vdeg.addEventListener('oninput', bbb);
 	</script>
 </body>
 
