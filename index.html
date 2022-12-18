@@ -12,7 +12,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Contrail+One&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Contrail+One&family=Noto+Sans:wght@700&display=swap"
 		rel="stylesheet">
+	<link href="sweetalert2.min.css" rel="stylesheet">
 	<link href="style.css" rel="stylesheet">
+	<script src="sweetalert2.all.min.js"></script>
 
 </head>
 
@@ -20,12 +22,13 @@
 
 
 <body>
-	<div id=ctrlpanel style="">
+	<div id=ctrlpanel style="display: none;">
 
 		<input class=ctrl min=0 max=100 id=speedinput type=range value=0>
 		<input class=ctrl min=0 max=100 id=vdeg type=range oninput=bbb()>
 		<input type="file" id="beforeAI"><span class="wh">
 			<vv>image before AI</vv>
+
 		</span>
 
 	</div>
@@ -162,7 +165,7 @@
 		function bbb() {
 			if (stopped) return;
 			let as = allSteps;
-			let vd = 0;//currentIndex;
+			let vd = currentIndex;
 			displayProgress(vd, vdeg.max);
 
 			clearTimeout(bbbtimeoutID);
@@ -176,7 +179,7 @@
 			}
 		}
 
-		graycircle.addEventListener('click', xx => {
+		textlogo.addEventListener('click', xx => {
 
 
 			if (ctrlpanel.style.display != 'none') {
@@ -200,14 +203,19 @@
 
 			var reader = new FileReader();
 			reader.onloadend = function () {
-				document.body.style.backgroundImage = "url(" + reader.result + ")";
-				document.getElementById('unselect-image').style.display = "inline";
+				document.body.style.backgroundImage = "url(" + reader.result + "),  linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1))";
+
 			}
 			if (file) {
 				reader.readAsDataURL(file);
 			}
 		}
 
+		Swal.fire({
+			title: 'Instructions:',
+			html: '1.press TikTok logo to show file selection & controls (this will stop animation), then select your background picture<br>' +
+				'2.press TikTok logo again to hide file selection, this will start animation after half a second',
+		})
 
 
 

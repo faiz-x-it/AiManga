@@ -1,1 +1,227 @@
-<html><!DOCTYPE html><html lang="en"><head>	<meta charset="UTF-8">	<meta http-equiv="X-UA-Compatible" content="IE=edge">	<meta name="viewport" content="width=device-width, initial-scale=1.0">	<title>Document</title>	<link rel="preconnect" href="https://fonts.googleapis.com">	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>	<link href="https://fonts.googleapis.com/css2?family=Contrail+One&display=swap" rel="stylesheet">	<link href="https://fonts.googleapis.com/css2?family=Contrail+One&family=Noto+Sans:wght@700&display=swap"		rel="stylesheet">	<link href="style.css" rel="stylesheet"></head><body>	<div id=ctrlpanel style="">		<input class=ctrl min=0 max=100 id=speedinput type=range value=0>		<input class=ctrl min=0 max=100 id=vdeg type=range oninput=bbb()>		<input type="file" id="beforeAI"><span class="wh">			<vv>image before AI</vv>		</span>	</div>	<div class="container">		<span id=textlogo class=textlogo><span class=kerned>				<y>T<y>						<x>i</x>			</span>kTok</span>		<span id=graycircle class=graycircle></span>		<span id=rtrall class=uu>			<div id=rtralla class=rtrrall>			</div>		</span>		<span id=perc class=perc>99%</span>	</div>	<script>		truMaxAngle = 340;		overTheMaxAngle = truMaxAngle * 9; 360 * 5;		dce = (x, y) => {			let oo = document.createElement(y);			x.append(oo);			return oo;		}		stopped = false;		bbbtimeoutID = 999;		StepAngle = 2;		howManySteps = 0;		let vda = 0;		vdainc = 5;		GrayRGBA = [200, 200, 200, 0.05].join();		gindex = 0;		somenumber = 0;		perc.innerText = "0%";		function bbbrot() {			let vd = vdeg.value;			vda += vdainc;			console.log(vd);			rtrall.style.transform = "rotateZ(" + vda + "deg)";			//setTimeout(bbb,50);		}		function mf(x, places = 0) {			let placesfactor = 10 ** places;			return Math.floor(x * placesfactor) / placesfactor;		}		floor = x => Math.floor(x)		maxAngle = 347		maxAngle = 347		minAngle = 8		allSteps = [];		function addStepsOnCircle() {			Rs = [];			for (x = maxAngle + overTheMaxAngle; x > minAngle; x -= StepAngle) {				magfac = 1.3;				howManySteps++;				let rtrel = dce(rtralla, "div");				rtrel.className = "rtrr4"				let vd = x;				let overtip = magfac / maxAngle * 1;				let fract = x * overtip;				rtrel.style.transform = "rotateZ(" + vd + "deg)";				let span = dce(rtrel, "span");				// We reduce green to zero first (0 at 50% gradient), then we increase red				span.className = "uu2";				let R, G, B = 0;				R = mf((Math.sin(((fract + .2) * 1.8) + 5.6) * 255));				G = mf((Math.sin(((fract + .2) * 4.8) + 7.0) * 255));//0;//255 + Math.sin((fract - .5) * 3);				B = mf((Math.sin(((fract + .15) * 2.) + 6.8) * 255));//0;//180 + Math.sin((fract - .5) * 2) * 128;				//G = 0;				//B = 180;									span.style.padding = mf((fract - .5) * 2, 2) - 12;					sdl = [						0,//mf((fract - magfac) * 0,2),						mf(fract/4*(Math.sin((fract - .5)) / Math.sin((fract * 1) - 2.5) * 18), 2) / ((Math.sin((fract - .5) * fract) * 100), 2) * 8,						mf(fract*Math.sin((overtip - fract * 5) * 2) * (overtip - fract * 5), 2)					].join("px,") + "px"					//console.log(sdl);					span.style.transform =						"perspective(" + (250 + mf(fract*Math.sin((fract - .5) ), 2) * fract) + "px) translate3d(" + sdl + ")"					"scale(" + mf(fract*(1 + (fract - .5)) , 2) + ")";					// span.style.zIndex = Math.floor(fract * 1000) + "";								Rs.push(R);				console.log([R, G, B]);				let BG = 'rgba(' + [R, G, B].join() + ',1)';				span.originalBG = BG;				span.style.background = BG;				span.style.boxShadow = "0px -14px 10px 0px "					+ 'rgba(' + [R, G, B, 0.13].join() + ')';				allSteps.push(span);				vdeg.max = allSteps.length;				currentIndex = allSteps.length;			}			console.log(Rs)			bbb();		}		function displayProgress(cur, max) {			let prc = 100 - Math.floor(cur * StepAngle / 360 * max * 100);			prc = mf(((max - cur) * 2 / 360) * 100);			perc.innerText = prc + "%";			for (i = 0; i < vdeg.max; i++) {				el = allSteps[i]				if (i > cur) {					el.style.display = '';				}				else {					el.style.display = 'none';				}			}		}		function bbb() {			if (stopped) {				displayProgress(vdeg.value, vdeg.max);				return;			}			let as = allSteps;			let vd = currentIndex;			displayProgress(vd, vdeg.max);			clearTimeout(bbbtimeoutID);			if (vd > 0) {				bbbtimeoutID = setTimeout(xx => {					somenumber++;					currentIndex = vdeg.max - somenumber;					bbb()				}, parseInt(speedinput.value))			}		}		textlogo.addEventListener('click', xx => {			currentIndex = vdeg.value;			if (ctrlpanel.style.display != 'none') {				ctrlpanel.style.display = 'none';				stopped = false;				bbbtimeoutID = setTimeout(bbb, 500);			} else {				somenumber = vdeg.value;				currentIndex = vdeg.max - somenumber;				displayProgress(vdeg.max, vdeg.max);				clearTimeout(bbbtimeoutID);				ctrlpanel.style.display = '';				stopped = true;			}		});		document.getElementById('beforeAI').onchange = function (e) {			var file = e.target.files[0];			var reader = new FileReader();			reader.onloadend = function () {				document.body.style.backgroundImage = "url(" + reader.result + ")";				document.getElementById('unselect-image').style.display = "inline";			}			if (file) {				reader.readAsDataURL(file);			}		}		addStepsOnCircle()	</script></body></html>
+<html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Contrail+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Contrail+One&family=Noto+Sans:wght@700&display=swap"
+        rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Contrail+One&family=Noto+Sans:wght@700&display=swap"
+        rel="stylesheet">
+    <link href="sweetalert2.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="sweetalert2.all.min.js"></script>
+</head>
+
+
+<body>
+    <div id=ctrlpanel style="">
+
+        <input class=ctrl min=0 max=100 id=speedinput type=range value=0>
+        <input class=ctrl min=0 max=100 id=vdeg type=range oninput=bbb()>
+        <input type="file" id="beforeAI"><span class="wh">
+            <vv>image before AI</vv>
+        </span>
+
+    </div>
+    <div class="container">
+
+        <span id=textlogo class=textlogo><span class=kerned>
+                <y>T<y>
+                        <x>i</x>
+            </span>kTok</span>
+        <span id=graycircle class=graycircle></span>
+        <span id=rtrall class=uu>
+            <div id=rtralla class=rtrrall>
+
+            </div>
+
+        </span>
+
+
+        <span id=perc class=perc>99%</span>
+
+    </div>
+    <script>
+        truMaxAngle = 340;
+        overTheMaxAngle = truMaxAngle * 9; 360 * 5;
+
+        dce = (x, y) => {
+            let oo = document.createElement(y);
+            x.append(oo);
+            return oo;
+        }
+        stopped = false;
+        bbbtimeoutID = 999;
+        StepAngle = 2;
+        howManySteps = 0;
+        let vda = 0;
+        vdainc = 5;
+        GrayRGBA = [200, 200, 200, 0.05].join();
+
+        gindex = 0;
+        somenumber = 0;
+
+        perc.innerText = "0%";
+
+
+
+        function bbbrot() {
+            let vd = vdeg.value;
+            vda += vdainc;
+            console.log(vd);
+            rtrall.style.transform = "rotateZ(" + vda + "deg)";
+            //setTimeout(bbb,50);
+        }
+
+        function mf(x, places = 0) {
+            let placesfactor = 10 ** places;
+            return Math.floor(x * placesfactor) / placesfactor;
+        }
+        floor = x => Math.floor(x)
+        maxAngle = 347
+        maxAngle = 347
+        minAngle = 8
+
+        allSteps = [];
+        function addStepsOnCircle() {
+            Rs = [];
+            for (x = maxAngle + overTheMaxAngle; x > minAngle; x -= StepAngle) {
+                magfac = 1.3;
+                howManySteps++;
+                let rtrel = dce(rtralla, "div");
+                rtrel.className = "rtrr4"
+                let vd = x;
+                let overtip = magfac / maxAngle * 1;
+                let fract = x * overtip;
+                rtrel.style.transform = "rotateZ(" + vd + "deg)";
+                let span = dce(rtrel, "span");
+                // We reduce green to zero first (0 at 50% gradient), then we increase red
+                span.className = "uu2";
+                let R, G, B = 0;
+
+                R = mf((Math.sin(((fract + .2) * 1.8) + 5.6) * 255));
+                G = mf((Math.sin(((fract + .2) * 4.8) + 7.0) * 255));//0;//255 + Math.sin((fract - .5) * 3);
+                B = mf((Math.sin(((fract + .15) * 2.) + 6.8) * 255));//0;//180 + Math.sin((fract - .5) * 2) * 128;
+
+                //G = 0;
+                //B = 180;
+
+                span.style.padding = mf((fract - .5) * 2, 2) - 12;
+
+                sdl = [
+                    0,//mf((fract - magfac) * 0,2),
+                    mf(fract / 4 * (Math.sin((fract - .5)) / Math.sin((fract * 1) - 2.5) * 18), 2) / ((Math.sin((fract - .5) * fract) * 100), 2) * 8,
+                    mf(fract * Math.sin((overtip - fract * 5) * 2) * (overtip - fract * 5), 2)
+                ].join("px,") + "px"
+                //console.log(sdl);
+                span.style.transform =
+                    "perspective(" + (250 + mf(fract * Math.sin((fract - .5)), 2) * fract) + "px) translate3d(" + sdl + ")"
+                "scale(" + mf(fract * (1 + (fract - .5)), 2) + ")";
+                // span.style.zIndex = Math.floor(fract * 1000) + "";
+
+
+                Rs.push(R);
+                console.log([R, G, B]);
+                let BG = 'rgba(' + [R, G, B].join() + ',1)';
+                span.originalBG = BG;
+                span.style.background = BG;
+                span.style.boxShadow = "0px -14px 10px 0px "
+                    + 'rgba(' + [R, G, B, 0.13].join() + ')';
+                allSteps.push(span);
+                vdeg.max = allSteps.length;
+                currentIndex = allSteps.length;
+            }
+            console.log(Rs)
+            bbb();
+        }
+
+        function displayProgress(cur, max) {
+            let prc = 100 - Math.floor(cur * StepAngle / 360 * max * 100);
+
+            prc = mf(((max - cur) * 2 / 360) * 100);
+            perc.innerText = prc + "%";
+            for (i = 0; i < vdeg.max; i++) {
+                el = allSteps[i]
+                if (i > cur) {
+                    el.style.display = '';
+                }
+                else {
+                    el.style.display = 'none';
+                }
+            }
+        }
+
+        function bbb() {
+            if (stopped) {
+                displayProgress(vdeg.value, vdeg.max);
+                return;
+            }
+            let as = allSteps;
+            let vd = currentIndex;
+            displayProgress(vd, vdeg.max);
+
+            clearTimeout(bbbtimeoutID);
+            if (vd > 0) {
+
+                bbbtimeoutID = setTimeout(xx => {
+                    somenumber++;
+                    currentIndex = vdeg.max - somenumber;
+                    bbb()
+                }, parseInt(speedinput.value))
+            }
+        }
+
+        textlogo.addEventListener('click', xx => {
+            currentIndex = vdeg.value;
+
+            if (ctrlpanel.style.display != 'none') {
+                ctrlpanel.style.display = 'none';
+                stopped = false;
+                bbbtimeoutID = setTimeout(bbb, 500);
+            } else {
+
+                somenumber = vdeg.value;
+                currentIndex = vdeg.max - somenumber;
+                displayProgress(vdeg.max, vdeg.max);
+                clearTimeout(bbbtimeoutID);
+                ctrlpanel.style.display = '';
+                stopped = true;
+            }
+        });
+
+
+        document.getElementById('beforeAI').onchange = function (e) {
+            var file = e.target.files[0];
+
+            var reader = new FileReader();
+            reader.onloadend = function () {
+                document.body.style.backgroundImage = "url(" + reader.result + ")";
+            }
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+        Swal.fire({
+            title: 'Instructions:',
+            html: '1.press TikTok logo to show file selection & controls (this will stop animation), then select your background picture<br>' +
+                '2.press TikTok logo again to hide file selection, this will start animation after half a second',
+        })
+
+
+
+        addStepsOnCircle()
+
+    </script>
+</body>
+
+
+</html>

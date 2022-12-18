@@ -15,7 +15,9 @@ body {
 
     background: transparent;
     background: black;
-    background: url('Zz2.jpg');
+    background-color: black;
+    background: url('Zz2.jpg'),
+        linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
     background-size: cover;
     background-size: 100% auto;
 
@@ -211,4 +213,11 @@ vv {
     z-index: 1;
     transform-origin: center;
     /* transform: scaleY(0.65) scaleX(.95) skewX(4deg); */
+}
+
+.linkylink {
+    background-color: rgb(249, 250, 175);
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px
 }
